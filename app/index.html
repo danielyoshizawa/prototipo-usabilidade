@@ -6,12 +6,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
+  <title>Bob's Totem</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="grid.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -25,30 +25,125 @@
 </head>
 <body>
 
-
-<header>
-    <h1>Bob's - Escolha a categoria desejada</h1>
-</header>
-
-<div>
+<div class="container">
     <div class="row">
-        <div class="col-4" style="border:solid 1px #000000">
-            <div ng-view>
-
+        <div class="col-2">Bob's</div>
+        <div class="col-8" style="text-align: left"><h3>Escolha a categoria desejada</h3></div>
+        <div class="col-2">Total: R$ 99,99</div>
+    </div>
+    <div class="row">
+        <div class="col-10" id="categoria" hidden>
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <p>Lanches</p>
+                    </div>
+                    <div class="col-4">
+                        <p>Sobremesas</p>
+                    </div>
+                    <div class="col-4">
+                        <p>Bebidas</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">Combos</div>
+                    <div class="col-4">Acompanhamentos</div>
+                    <div class="col-4">Saladas</div>
+                </div>
+                <div class="row">
+                    <div class="col-4">Promoções</div>
+                    <div class="col-4">Comida</div>
+                    <div class="col-4">Outra Comida</div>
+                </div>
             </div>
         </div>
-        <div class="col-4" style="border:solid 1px #000000">
-            BBB
+        <div class="col-10" id="produtos" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <p>R$ 8,00</p>
+                        <p>Big Bobs</p>
+                        <input type="button" value="-">
+                        <text>00</text>
+                        <input type="button" value="+">
+                    </div>
+                    <div class="col-4">
+                        <p>R$ 7,50</p>
+                        <p>Bobs Burger</p>
+                        <input type="button" value="-">
+                        <text>00</text>
+                        <input type="button" value="+">
+                    </div>
+                    <div class="col-4">
+                        <p>R$ 10,00</p>
+                        <p>Cancer Burger</p>
+                        <input type="button" value="-">
+                        <text>00</text>
+                        <input type="button" value="+">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <p>R$ 3,00</p>
+                        <p>Bobs Sorvete</p>
+                        <input type="button" value="-">
+                        <text>00</text>
+                        <input type="button" value="+">
+                    </div>
+                    <div class="col-4">
+                        <p>R$ 4,50</p>
+                        <p>Bobinho</p>
+                        <input type="button" value="-">
+                        <text>00</text>
+                        <input type="button" value="+">
+                    </div>
+                    <div class="col-4">
+                        <p>R$ 15,00</p>
+                        <p>Bob's Bob's</p>
+                        <input type="button" value="-">
+                        <text>00</text>
+                        <input type="button" value="+">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <p>R$ 25,00</p>
+                        <p>Burger Bob's</p>
+                        <input type="button" value="-">
+                        <text>00</text>
+                        <input type="button" value="+">
+                    </div>
+                    <div class="col-4">
+                        <p>R$ 6,50</p>
+                        <p>Comida</p>
+                        <input type="button" value="-">
+                        <text>00</text>
+                        <input type="button" value="+">
+                    </div>
+                    <div class="col-4">
+                        <p>R$ 8,35</p>
+                        <p>Valor Randomico</p>
+                        <input type="button" value="-">
+                        <text>00</text>
+                        <input type="button" value="+">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="container">
+                <div class="row">
+                    Itens Selecionados
+                    <div class="col-12"></div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-8" style="border:solid 1px #000000">
-            <ul class="menu">
-                <li><a href="#!/view1">view1</a></li>
-                <li><a href="#!/view2">view2</a></li>
-            </ul>
-        </div>
-
+        <div class="col-3"><input type="button" value="Voltar"></div>
+        <div class="col-3"><input type="button" value="Info"></div>
+        <div class="col-3"><input type="button" value="Cancelar"></div>
+        <div class="col-3"><input type="button" value="Concluir"></div>
     </div>
 </div>
 
