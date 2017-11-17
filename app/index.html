@@ -25,107 +25,120 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container" ng-app="myApp" ng-controller="myCtrl" ng-init="comida=false">
     <div class="row">
         <div class="col-2">Bob's</div>
-        <div class="col-8" style="text-align: left"><h3>Escolha a categoria desejada</h3></div>
-        <div class="col-2">Total: R$ 99,99</div>
+        <div class="col-8" style="text-align: left">
+            <h3>Escolha sua <text ng-hide="comida"> categoria</text> <text ng-show="comida"> comida</text></h3></div>
+        <div class="col-2">Total: {{ getTotal() | currency:"R$"}}</div>
     </div>
     <div class="row">
-        <div class="col-10" id="categoria" hidden>
+        <div class="col-10" ng-hide="comida">
             <div class="container">
                 <div class="row">
-                    <div class="col-4">
-                        <p>Lanches</p>
+                    <div class="category ">
+                        <button class="btn btn-secondary btn-lg categoryBtn" ng-click="comida=true">Lanches</button>
                     </div>
-                    <div class="col-4">
-                        <p>Sobremesas</p>
+                    <div class="category">
+                        <button class="btn btn-secondary btn-lg categoryBtn" ng-click="comida=true">Sobremesas</button>
                     </div>
-                    <div class="col-4">
-                        <p>Bebidas</p>
+                    <div class="category">
+                        <button class="btn btn-secondary btn-lg categoryBtn" ng-click="comida=true">Bebidas</button>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4">Combos</div>
-                    <div class="col-4">Acompanhamentos</div>
-                    <div class="col-4">Saladas</div>
+                    <div class="category">
+                        <button class="btn btn-secondary btn-lg categoryBtn" ng-click="comida=true">Combos</button>
+                    </div>
+                    <div class="category">
+                        <button class="btn btn-secondary btn-lg categoryBtn" ng-click="comida=true">Acompanhamentos</button>
+                    </div>
+                    <div class="category">
+                        <button class="btn btn-secondary btn-lg categoryBtn" ng-click="comida=true">Saladas</button>
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="col-4">Promoções</div>
-                    <div class="col-4">Comida</div>
-                    <div class="col-4">Outra Comida</div>
+                    <div class="category">
+                        <button class="btn btn-secondary btn-lg categoryBtn" ng-click="comida=true">Promoções</button>
+                    </div>
+                    <div class="category">
+                        <button class="btn btn-secondary btn-lg categoryBtn" ng-click="comida=true">Comida</button>
+                    </div>
+                    <div class="category">
+                        <button class="btn btn-secondary btn-lg categoryBtn" ng-click="comida=true">Outra Comida</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-10" id="produtos" >
+        <div class="col-10" ng-show="comida">
             <div class="container">
-                <div class="row">
+                <div class="row ">
                     <div class="col-4">
-                        <p>R$ 8,00</p>
-                        <p>Big Bobs</p>
-                        <input type="button" value="-">
-                        <text>00</text>
-                        <input type="button" value="+">
+                        <p>{{ bigBobs.preco | currency:"R$"}}</p>
+                        <p>{{ bigBobs.nome }}</p>
+                        <button ng-click="bigBobs.qtd = bigBobs.qtd-1">-</button>
+                        <text>{{ bigBobs.qtd }}</text>
+                        <button ng-click="bigBobs.qtd = bigBobs.qtd+1">+</button>
                     </div>
                     <div class="col-4">
-                        <p>R$ 7,50</p>
-                        <p>Bobs Burger</p>
-                        <input type="button" value="-">
-                        <text>00</text>
-                        <input type="button" value="+">
+                        <p>{{bobsBurger.preco | currency:"R$"}}</p>
+                        <p>{{ bobsBurger.nome}}</p>
+                        <button ng-click="bobsBurger.qtd = bobsBurger.qtd-1">-</button>
+                        <text>{{ bobsBurger.qtd }}</text>
+                        <button ng-click="bobsBurger.qtd = bobsBurger.qtd+1">+</button>
                     </div>
                     <div class="col-4">
-                        <p>R$ 10,00</p>
-                        <p>Cancer Burger</p>
-                        <input type="button" value="-">
-                        <text>00</text>
-                        <input type="button" value="+">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                        <p>R$ 3,00</p>
-                        <p>Bobs Sorvete</p>
-                        <input type="button" value="-">
-                        <text>00</text>
-                        <input type="button" value="+">
-                    </div>
-                    <div class="col-4">
-                        <p>R$ 4,50</p>
-                        <p>Bobinho</p>
-                        <input type="button" value="-">
-                        <text>00</text>
-                        <input type="button" value="+">
-                    </div>
-                    <div class="col-4">
-                        <p>R$ 15,00</p>
-                        <p>Bob's Bob's</p>
-                        <input type="button" value="-">
-                        <text>00</text>
-                        <input type="button" value="+">
+                        <p>{{cancerBurger.preco | currency:"R$"}}</p>
+                        <p>{{ cancerBurger.nome}}</p>
+                        <button ng-click="cancerBurger.qtd = cancerBurger.qtd-1">-</button>
+                        <text>{{ cancerBurger.qtd }}</text>
+                        <button ng-click="cancerBurger.qtd = cancerBurger.qtd+1">+</button>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row ">
                     <div class="col-4">
-                        <p>R$ 25,00</p>
-                        <p>Burger Bob's</p>
-                        <input type="button" value="-">
-                        <text>00</text>
-                        <input type="button" value="+">
+                        <p>{{ bobsSorvete.preco | currency:"R$"}}</p>
+                        <p>{{ bobsSorvete.nome }}</p>
+                        <button ng-click="bobsSorvete.qtd = bobsSorvete.qtd-1">-</button>
+                        <text>{{ bobsSorvete.qtd }}</text>
+                        <button ng-click="bobsSorvete.qtd = bobsSorvete.qtd+1">+</button>
                     </div>
                     <div class="col-4">
-                        <p>R$ 6,50</p>
-                        <p>Comida</p>
-                        <input type="button" value="-">
-                        <text>00</text>
-                        <input type="button" value="+">
+                        <p>{{ bobinho.preco | currency:"R$" }}</p>
+                        <p>{{ bobinho.nome}}</p>
+                        <button ng-click="bobinho.qtd = bobinho.qtd-1">-</button>
+                        <text>{{ bobinho.qtd }}</text>
+                        <button ng-click="bobinho.qtd = bobinho.qtd+1">+</button>
                     </div>
                     <div class="col-4">
-                        <p>R$ 8,35</p>
-                        <p>Valor Randomico</p>
-                        <input type="button" value="-">
-                        <text>00</text>
-                        <input type="button" value="+">
+                        <p>{{ bobsBobs.preco | currency:"R$"}}</p>
+                        <p>{{ bobsBobs.nome}}</p>
+                        <button ng-click="bobsBobs.qtd = bobsBobs.qtd-1">-</button>
+                        <text>{{ bobsBobs.qtd }}</text>
+                        <button ng-click="bobsBobs.qtd = bobsBobs.qtd+1">+</button>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-4">
+                        <p>{{ burgerBobs.preco | currency:"R$"}}</p>
+                        <p>{{ burgerBobs.nome}}</p>
+                        <button ng-click="burgerBobs.qtd = burgerBobs.qtd-1">-</button>
+                        <text>{{ burgerBobs.qtd }}</text>
+                        <button ng-click="burgerBobs.qtd = burgerBobs.qtd+1">+</button>
+                    </div>
+                    <div class="col-4">
+                        <p>{{ bobComida.preco | currency:"R$"}}</p>
+                        <p>{{ bobComida.nome}}</p>
+                        <button ng-click="bobComida.qtd = bobComida.qtd-1">-</button>
+                        <text>{{ bobComida.qtd }}</text>
+                        <button ng-click="bobComida.qtd = bobComida.qtd+1">+</button>
+                    </div>
+                    <div class="col-4">
+                        <p>{{ bigMac.preco | currency:"R$"}}</p>
+                        <p>{{ bigMac.nome}}</p>
+                        <button ng-click="bigMac.qtd = bigMac.qtd-1">-</button>
+                        <text>{{ bigMac.qtd }}</text>
+                        <button ng-click="bigMac.qtd = bigMac.qtd+1">+</button>
                     </div>
                 </div>
             </div>
@@ -134,13 +147,15 @@
             <div class="container">
                 <div class="row">
                     Itens Selecionados
-                    <div class="col-12"></div>
+                    <div class="col-12" ng-repeat="burger in burgers | filter: filtro">
+                        <text style="font-size: smaller">{{ burger.nome }}: {{ burger.qtd }}</text>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-3"><input type="button" value="Voltar"></div>
+        <div class="col-3"><button ng-click="comida=false">Voltar</button></div>
         <div class="col-3"><input type="button" value="Info"></div>
         <div class="col-3"><input type="button" value="Cancelar"></div>
         <div class="col-3"><input type="button" value="Concluir"></div>
